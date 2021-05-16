@@ -6,21 +6,24 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'DashboardController@index')->name('root');
 Route::group(['middleware' => ['guest']], function () {
-  /* untuk view login */
-  Route::get('/auth/login', 'AuthController@loginAuth')->name('login');
 
-  /*Untuk Dashboard Apk */
-  Route::get('/dashboard/about', 'DashboardController@about')->name('about');
-  Route::get('/dashboard/teacher', 'DashboardController@teacher')->name('teacher');
-  Route::get('/dashboard/berita', 'DashboardController@berita')->name('berita');
-  Route::get('/dashboard/kegiatan', 'DashboardController@kegiatan')->name('kegiatan');
-  Route::get('/dashboard/kontak', 'DashboardController@kontak')->name('kontak');
+  /* untuk view login*/
+  Route::get('/auth/login', 'AuthController@loginAuth')->name('login');
 });
 
 // Untuk Admin
 Route::middleware('auth')->group(function () {
   // Dashboard App Di Master Admin
   Route::get('/admin/dashboard', 'AdminController@index')->name('dashboard');
+  Route::post('/admin/{user}/dashboard', 'AdminController@create')->name('user');
+  Route::get('/admin/{user}/edit', 'AdminController@show')->name('show');
+
+  /*Untuk Dashboard Apk*/
+  Route::get('/dashboard/about', 'DashboardController@about')->name('about');
+  Route::get('/dashboard/teacher', 'DashboardController@teacher')->name('teacher');
+  Route::get('/dashboard/berita', 'DashboardController@berita')->name('berita');
+  Route::get('/dashboard/kegiatan', 'DashboardController@kegiatan')->name('kegiatan');
+  Route::get('/dashboard/kontak', 'DashboardController@kontak')->name('kontak');
 
   // Untuk Kepala Sekolah
   Route::get('/admin/kepalaSekolah', 'KepalaSekolahController@index')->name('kepalaSekolah');
@@ -29,16 +32,24 @@ Route::middleware('auth')->group(function () {
   Route::put('/admin/{headmaster}/kepalaSekolah/', 'KepalaSekolahController@update')->name('editKepalaSekolah');
   Route::get('/admin/{headmaster}/kepalaSekolah/', 'KepalaSekolahController@show')->name('showKepalaSekolah');
 
+  // Untuk Guru Pns
   Route::get('/admin/guruPns', 'GuruPnsController@index')->name('guruPns');
   Route::post('/admin/guruPns', 'GuruPnsController@store')->name('tambahGuruPns');
   Route::put('/admin/{teacher}/guruPns', 'GuruPnsController@update')->name('ubahGuruPns');
+  Route::get('/admin/{teacher}/guruPns', 'GuruPnsController@show')->name('lihatGuruPns');
+  Route::delete('/admin/{teacher}/guruPns', 'GuruPnsController@destroy')->name('deleteGuruPns');
+
   Route::get('/admin/guruHonorer', 'GuruHonorController@index')->name('guruHonorer');
   Route::post('/admin/guruHonorer', 'GuruHonorController@store')->name('tambahGuruHonor');
+  Route::put('/admin/{teacher}/guruHonorer', 'GuruHonorController@update')->name('updateGuruHonor');
+  Route::get('/admin/{teacher}/guruHonorer', 'GuruHonorController@show')->name('showGuruHonor');
+  Route::delete('/admin/{teacher}/guruHonorer', 'GuruHonorController@destroy')->name('deleteGuruHonor');
 });
 
 
 // untuk siapa saja untuk User Login
 Route::get('/userLogin', 'authController@userLogin')->name('userLogin');
+Route::post('/userLogin', 'authController@usersLogin')->name('tambahUser');
 
 // Untuk Autentifikasi
 

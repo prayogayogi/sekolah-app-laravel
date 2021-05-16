@@ -74,9 +74,9 @@ class GuruPnsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Teacher $teacher)
     {
-        //
+        return $teacher;
     }
 
     /**
@@ -114,7 +114,7 @@ class GuruPnsController extends Controller
             $nama_file = time() . "_" . $file->getClientOriginalName();
 
             // isi dengan nama folder tempat kemana file diupload
-            $tujuan_upload = 'dataGambarPns';
+            $tujuan_upload = 'dataGambarGuru';
             $file->move($tujuan_upload, $nama_file);
         } else {
             $nama_file = $teacher->gambar;
@@ -138,8 +138,9 @@ class GuruPnsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Teacher $teacher)
     {
-        //
+        Teacher::destroy($teacher->id);
+        return redirect()->back()->with('status', 'Data Berhasil Dihapus');
     }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -33,6 +34,15 @@ class AuthController extends Controller
 
     public function userLogin()
     {
-        return view('pages.pagesAdmin.user.userLogin');
+        $user = User::all();
+        return view('pages.pagesAdmin.user.userLogin', compact('user'));
+    }
+
+
+    // untul tambah user yang login
+    public function user(Request $request)
+    {
+        User::create($request->all());
+        return redirect()->back();
     }
 }

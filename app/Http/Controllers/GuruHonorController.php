@@ -37,10 +37,11 @@ class GuruHonorController extends Controller
      */
     public function store(Request $request)
     {
-        $data = $this->validate($request, [
+        $request->validate([
             'nama' => 'required',
-            'alamat' => 'required',
-            'tahunAngkatan' => 'required',
+            'nid' => 'required',
+            'mapel' => 'required',
+            'no_hp' => 'required',
             'gambar' => 'required|file|image|mimes:jpeg,png,jpg',
         ]);
 
@@ -50,18 +51,18 @@ class GuruHonorController extends Controller
         $nama_file = time() . "_" . $file->getClientOriginalName();
 
         // isi dengan nama folder tempat kemana file diupload
-        $tujuan_upload = 'dataGambar';
+        $tujuan_upload = 'dataGambarGuru';
         $file->move($tujuan_upload, $nama_file);
 
         Teacher::create([
             'nama' => $request->nama,
-            'alamat' => $request->alamat,
-            'tahunAngkatan' => $request->tahunAngkatan,
+            'nid' => $request->nid,
+            'mapel' => $request->mapel,
+            'no_hp' => $request->no_hp,
+            'role_id' => 3,
             'gambar' => $nama_file,
-            'golongan' => 2,
         ]);
-
-        return redirect()->back();
+        return redirect()->back()->with('status', 'Data Berhasil Ditambah');
     }
 
     /**
@@ -70,9 +71,9 @@ class GuruHonorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Teacher $teacher)
     {
-        //
+        return $teacher;
     }
 
     /**
@@ -95,7 +96,35 @@ class GuruHonorController extends Controller
      */
     public function update(Request $request, Teacher $teacher)
     {
-        return $teacher;
+        $request->validate([
+            'nama' => 'required',
+            'nid' => 'required',
+            'mapel' => 'required',
+            'no_hp' => 'required',
+        ]);
+
+        // menyimpan data file yang diupload ke variabel $file
+
+        $file = $request->file('gambar');
+        if ($file) {
+            $nama_file = time() . "_" . $file->getClientOriginalName();
+
+            // isi dengan nama folder tempat kemana file diupload
+            $tujuan_upload = 'dataGambarGuru';
+            $file->move($tujuan_upload, $nama_file);
+        } else {
+            $nama_file = $teacher->gambar;
+        }
+
+        Teacher::where('id', $teacher->id)
+            ->update([
+                'nama' => $request->nama,
+                'nid' => $request->nid,
+                'mapel' => $request->mapel,
+                'no_hp' => $request->no_hp,
+                'gambar' => $nama_file
+            ]);
+        return redirect()->back()->with('status', 'Data Berhasil Diubah');
     }
 
     /**
@@ -104,8 +133,9 @@ class GuruHonorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Teacher $teacher)
     {
-        //
+        Teacher::destroy($teacher->id);
+        return redirect()->back()->with('statusHapus', 'Data Berhasil Dihapus');
     }
 }

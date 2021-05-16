@@ -10,7 +10,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $headmaster = Headmaster::all();
+        $headmaster = [];
         return View('pages.home', compact('headmaster'));
     }
 

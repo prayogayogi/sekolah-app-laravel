@@ -12,6 +12,11 @@
   <p class="mb-4 mt-2">
     Menu Guru Pns ini merupakan menu Guru Pns.
   </p>
+  @if (session('status'))
+    <div class="alert alert-success">
+        {{ session('status') }}
+    </div>
+  @endif
   <div class="row">
     <div class="col">
       <div class="card">
@@ -42,8 +47,12 @@
                     </td>
                     <td>
                       <a href="http://" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalguruPnsUbah{{$teachers->id}}"><i class="far fa-edit"></i></a>
-                      <a href="http://" class="btn btn-danger pr-3"><i class="far fa-trash-alt"></i></a>
-                      <a href="http://" class="btn btn-warning pr-3"><i class="fas fa-eye"></i></a>
+                      <form action="/admin/{{$teachers->id}}/guruPns" method="post">
+                        @method('delete')
+                        @csrf
+                        <button type="submit" class="btn btn-danger pr-3"><i class="far fa-trash-alt"></i></button>
+                      </form>
+                      <a href="/admin/{{$teachers->id}}/guruPns" class="btn btn-warning pr-3"><i class="fas fa-eye"></i></a>
                     </td>
                   </tr>
                   @endforeach
@@ -121,15 +130,19 @@
               @csrf
               <div class="form-group">
                 <label for="nama">Nama</label>
-                <input autofocus value="{{ $teachers->nama }}" type="text" name="nama" class="form-control" id="nama" >
+                <input autofocus value="{{$teachers->nama}}" type="text" name="nama" class="form-control" id="nama">
               </div>
               <div class="form-group">
-                <label for="alamat">Alamat</label>
-                <input type="text" value="{{ $teachers->alamat }}" name="alamat" class="form-control" id="alamat" >
+                <label for="nid">Nid</label>
+                <input type="text" value="{{$teachers->nid}}" name="nid" class="form-control" id="nid">
               </div>
               <div class="form-group">
-                <label for="tahunAngkatan">Tahun Angkatan</label>
-                <input type="text" value="{{ $teachers->tahunAngkatan }}" name="tahunAngkatan" class="form-control" id="tahunAngkatan" >
+                <label for="mapel">Mapel</label>
+                <input type="text" value="{{$teachers->mapel}}" name="mapel" class="form-control" id="mapel">
+              </div>
+              <div class="form-group">
+                <label for="no_hp">No_hp</label>
+                <input type="text" value="{{$teachers->no_hp}}" name="no_hp" class="form-control" id="no_hp">
               </div>
               <div class="form-group">
                 <label for="gambar">Gambar</label>
