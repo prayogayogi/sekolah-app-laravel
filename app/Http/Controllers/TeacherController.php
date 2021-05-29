@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Teacher;
 use Illuminate\Http\Request;
 
 class TeacherController extends Controller
@@ -13,7 +14,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        //
+        $data = Teacher::all();
+        return view('pages.pagesAdmin.dataGuru.kepalaSekolah', compact('data'));
     }
 
     /**

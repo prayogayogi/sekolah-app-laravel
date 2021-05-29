@@ -36,7 +36,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($headmaster as $headmasters)
+                  @foreach ($data as $headmasters)
                   <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{$headmasters->nama}}</td>
@@ -142,7 +142,7 @@
 
 <!-- Modal edit Kepala Sekolah -->
 @if (auth()->user()->role_id == 1)
-@foreach ($headmaster as $headmasters)
+@foreach ($data as $headmasters)
 <div class="modal fade" id="exampleModalEdit{{$headmasters->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">

@@ -8,7 +8,7 @@ Route::get('/', 'DashboardController@index')->name('root');
 Route::group(['middleware' => ['guest']], function () {
 
   /* untuk view login*/
-  Route::get('/auth/login', 'AuthController@loginAuth')->name('login');
+  Route::get('/auth/login', 'Auth\LoginController@loginAuth')->name('login');
 });
 
 // Untuk Admin
@@ -26,7 +26,7 @@ Route::middleware('auth')->group(function () {
   Route::get('/dashboard/kontak', 'DashboardController@kontak')->name('kontak');
 
   // Untuk Kepala Sekolah
-  Route::get('/admin/kepalaSekolah', 'KepalaSekolahController@index')->name('kepalaSekolah');
+  Route::get('/admin/kepalaSekolah', 'TeacherController@index')->name('kepalaSekolah');
   Route::post('/admin/kepalaSekolah', 'KepalaSekolahController@store')->name('tambahKepalaSekolah');
   Route::delete('/admin/{headmaster}/kepalaSekolah/', 'KepalaSekolahController@destroy')->name('deleteKepalaSekolah');
   Route::put('/admin/{headmaster}/kepalaSekolah/', 'KepalaSekolahController@update')->name('editKepalaSekolah');
@@ -48,13 +48,16 @@ Route::middleware('auth')->group(function () {
 
 
 // untuk siapa saja untuk User Login
-Route::get('/userLogin', 'authController@userLogin')->name('userLogin');
-Route::post('/userLogin', 'authController@usersLogin')->name('tambahUser');
+Route::get('/userLogin', 'Auth\LoginController@userLogin')->name('userLogin');
+Route::post('/userLogin', 'Auth\LoginController@usersLogin')->name('tambahUser');
 
 // Untuk Autentifikasi
 
 /*Untuk aksi Login*/
-Route::post('/auth/dashboard', 'AuthController@dashboard')->name('dashboardLogin');
+Route::post('/auth/dashboard', 'Auth\LoginController@dashboard')->name('dashboardLogin');
 
 /*untuk Logout*/
 Route::post('/auth/logOut', 'Auth\LogoutController')->name('logOut');
+
+
+Route::delete('/user/{user}', 'userController@destroy');

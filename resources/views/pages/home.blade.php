@@ -146,10 +146,10 @@
       <div class="col-lg-6 mb-sm-4 ftco-animate">
         <div class="staff">
           <div class="d-flex mb-4">
-            <div class="img" style="background-image: url({{url('dataGambarKepsek/'. $headmasters->gambar)}});"></div>
+            <div class="img" style="background-image: url({{ url('dataGambarKepsek/'. $headmasters->gambar) }});"></div>
             <div class="info ml-4">
-              <h3><a href="teacher-single.html">{{ $headmasters->nama}}</a></h3>
-              <span class="position font-weight-bold">Guru : {{$headmasters->mapel}}</span>
+              <h3><a href="teacher-single.html">{{ $headmasters->nama }}</a></h3>
+              <span class="position font-weight-bold">Guru : {{ $headmasters->mapel }}</span>
               <p class="ftco-social d-flex">
                 <a href="{{ $headmasters->watsapp }}" target="blank" class="d-flex justify-content-center align-items-center"><span class="icon-whatsapp"></span></a>
                 <a href="{{ $headmasters->facebook }}" target="blank" class="d-flex justify-content-center align-items-center"><span class="icon-facebook"></span></a>
@@ -157,8 +157,7 @@
               </p>
             </div>
           </div>
-          <div class="text">
-            <p>{{ $headmasters->deskripsi }}</p>
+          <div class="text"><p>{{ $headmasters->deskripsi }}</p>
           </div>
         </div>
       </div>

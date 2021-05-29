@@ -1,12 +1,13 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AuthController extends Controller
+class LoginController extends Controller
 {
     public function loginAuth()
     {
@@ -24,13 +25,6 @@ class AuthController extends Controller
         }
         return redirect('/auth/login');
     }
-
-    // public function logOut()
-    // {
-    //     Auth::logout();
-    //     return redirect('/auth/login');
-    // }
-
 
     public function userLogin()
     {

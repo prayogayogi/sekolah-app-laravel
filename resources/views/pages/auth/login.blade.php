@@ -24,7 +24,7 @@
                   @csrf
                   <div class="form-group">
                     <label for="exampleInputEmail">Email</label>
-                    <input type="text" value="{{ old('email') }}" name="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email..">
+                    <input type="text" value="{{ old('email') }}" name="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email.." autofocus>
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword">Password</label>

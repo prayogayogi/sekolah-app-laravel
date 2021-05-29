@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use App\Headmaster;
 use App\User;
 use Illuminate\Http\Request;
 
