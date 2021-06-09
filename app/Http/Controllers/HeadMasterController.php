@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
 
-class TeacherController extends Controller
+class HeadMasterController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -36,6 +36,15 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
+        User::create([
+            'nama' => $request->nama,
+            'nid' => $request->nid,
+            'mapel' => $request->mapel,
+            'no_hp' => $request->no_hp,
+            'role_id' => 2,
+            'gambar' => $request->gamabar,
+        ]);
+        return redirect()->back();
     }
 
     /**

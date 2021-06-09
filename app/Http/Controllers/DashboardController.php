@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Headmaster;
+use App\User;
 use Facade\FlareClient\View;
 use Illuminate\Http\Request;
 
@@ -10,7 +11,7 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        $headmaster = [];
+        $headmaster = User::all();
         return View('pages.home', compact('headmaster'));
     }
 

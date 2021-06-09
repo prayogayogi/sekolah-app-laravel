@@ -26,8 +26,8 @@ Route::middleware('auth')->group(function () {
   Route::get('/dashboard/kontak', 'DashboardController@kontak')->name('kontak');
 
   // Untuk Kepala Sekolah
-  Route::get('/admin/kepalaSekolah', 'TeacherController@index')->name('kepalaSekolah');
-  Route::post('/admin/kepalaSekolah', 'KepalaSekolahController@store')->name('tambahKepalaSekolah');
+  Route::get('/admin/kepalaSekolah', 'HeadMasterController@index')->name('kepalaSekolah');
+  Route::post('/admin/tambahKepalaSekolah', 'HeadMasterController@store')->name('tambahKepalaSekolah');
   Route::delete('/admin/{headmaster}/kepalaSekolah/', 'KepalaSekolahController@destroy')->name('deleteKepalaSekolah');
   Route::put('/admin/{headmaster}/kepalaSekolah/', 'KepalaSekolahController@update')->name('editKepalaSekolah');
   Route::get('/admin/{headmaster}/kepalaSekolah/', 'KepalaSekolahController@show')->name('showKepalaSekolah');
@@ -48,8 +48,8 @@ Route::middleware('auth')->group(function () {
 
 
 // untuk siapa saja untuk User Login
-Route::get('/userLogin', 'Auth\LoginController@userLogin')->name('userLogin');
-Route::post('/userLogin', 'Auth\LoginController@usersLogin')->name('tambahUser');
+Route::get('/userLogin', 'AdminController@userLogin')->name('userLogin');
+Route::post('/userLogin', 'AdminController@usersLogin')->name('tambahUser');
 
 // Untuk Autentifikasi
 

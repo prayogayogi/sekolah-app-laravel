@@ -23,6 +23,7 @@
                     <th scope="col">No </th>
                     <th scope="col">Nama</th>
                     <th scope="col">Email</th>
+                    <th scope="col">Guru</th>
                     <th scope="col">Jabatan</th>
                     <th scope="col">Action</th>
                   </tr>
@@ -33,6 +34,7 @@
                     <th scope="row">1</th>
                     <td>{{$users->name}}</td>
                     <td>{{$users->email}}</td>
+                    <td>{{$users->mapel}}</td>
                     <td>
                       @if ($users->role_id == 1)
                           Admin

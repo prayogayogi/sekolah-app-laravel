@@ -13,6 +13,21 @@ class AdminController extends Controller
         return view('pages.pagesAdmin.dashboard');
     }
 
+    // View Untuk admin, tambah admin, lihat admin dan hapus admin
+    public function userLogin()
+    {
+        $user = User::all();
+        return view('pages.pagesAdmin.user.userLogin', compact('user'));
+    }
+
+
+    // untul tambah Admin yang login
+    public function user(Request $request)
+    {
+        User::create($request->all());
+        return redirect()->back();
+    }
+
 
     // Unutk Show
     public function show(User $user)

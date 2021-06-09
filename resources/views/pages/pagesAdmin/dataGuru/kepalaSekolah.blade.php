@@ -39,7 +39,7 @@
                   @foreach ($data as $headmasters)
                   <tr>
                     <th scope="row">{{ $loop->iteration }}</th>
-                    <td>{{$headmasters->nama}}</td>
+                    <td>{{$headmasters->name}}</td>
                     <td>{{$headmasters->no_hp}}</td>
                     <td>{{$headmasters->mapel}}</td>
                     <td>
@@ -53,7 +53,6 @@
                         @csrf
                         <button type="submit" class="btn btn-danger pr-3"><i class="far fa-trash-alt"></i></button>
                       </form>
-
                       <a href="/admin/{{$headmasters->id}}/kepalaSekolah/" class="btn btn-success pr-3"><i class="fas fa-eye"></i></a>
                     </td>
                   </tr>
@@ -72,7 +71,7 @@
 <!-- Modal tambah Kepala Sekolah -->
 @if (auth()->user()->role_id == 1)
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLabel">Tambah Data Pimpinan</h5>
@@ -85,50 +84,92 @@
           <div class="col">
             <form method="POST" action="{{ route('tambahKepalaSekolah') }}" enctype="multipart/form-data">
               @csrf
-                  <div class="form-group">
-                    <label for="nama">Nama</label>
-                    <input autofocus value="{{ old('nama')}}" type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukkan Nama..">
-                    @error('nama')
-                    <div class="invalid-feedback">
-                      {{ $message }}
+                  <div class="row">
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="nama">Nama</label>
+                        <input autofocus value="{{ old('nama')}}" type="text" name="nama" class="form-control @error('nama') is-invalid @enderror" id="nama" placeholder="Masukkan Nama..">
+                        @error('nama')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
+                      <div class="form-group">
+                        <label for="email">email</label>
+                        <input autofocus value="{{ old('email')}}" type="text" name="email" class="form-control @error('email') is-invalid @enderror" id="email" placeholder="Masukkan email..">
+                        @error('email')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
+                      <div class="form-group">
+                        <label for="nid">nid</label>
+                        <input autofocus value="{{ old('nid')}}" type="text" name="nid" class="form-control @error('nid') is-invalid @enderror" id="nid" placeholder="Masukkan nid..">
+                        @error('nid')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
+                      <div class="form-group">
+                        <label for="mapel">mapel</label>
+                        <input autofocus value="{{ old('mapel')}}" type="text" name="mapel" class="form-control @error('mapel') is-invalid @enderror" id="mapel" placeholder="Masukkan mapel..">
+                        @error('mapel')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
+                      <div class="form-group">
+                        <label for="no_hp">No hp</label>
+                        <input autofocus value="{{ old('no_hp')}}" type="text" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" placeholder="Masukkan No_hp..">
+                        @error('no_hp')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
                     </div>
-                    @enderror
-                  </div>
-                  <div class="form-group">
-                    <label for="nid">Nid</label>
-                    <input autofocus value="{{ old('nid')}}" type="text" name="nid" class="form-control @error('nid') is-invalid @enderror" id="nid" placeholder="Masukkan Nid..">
-                    @error('nid')
-                    <div class="invalid-feedback">
-                      {{ $message }}
+                    <div class="col">
+                      <div class="form-group">
+                        <label for="facebook">facebook</label>
+                        <input autofocus value="{{ old('facebook')}}" type="text" name="facebook" class="form-control @error('facebook') is-invalid @enderror" id="facebook" placeholder="Masukkan facebook..">
+                        @error('facebook')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
+                      <div class="form-group">
+                        <label for="instagram">instagram</label>
+                        <input autofocus value="{{ old('instagram')}}" type="text" name="instagram" class="form-control @error('instagram') is-invalid @enderror" id="instagram" placeholder="Masukkan instagram..">
+                        @error('instagram')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
+                      <div class="form-group">
+                        <label for="deskripsi">deskripsi</label>
+                        <input autofocus value="{{ old('deskripsi')}}" type="text" name="deskripsi" class="form-control @error('deskripsi') is-invalid @enderror" id="deskripsi" placeholder="Masukkan deskripsi..">
+                        @error('deskripsi')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
+                      <div class="form-group">
+                        <label for="gambar">gambar</label>
+                        <input autofocus value="{{ old('gambar')}}" type="text" name="gambar" class="form-control @error('gambar') is-invalid @enderror" id="gambar" placeholder="Masukkan gambar..">
+                        @error('gambar')
+                        <div class="invalid-feedback">
+                          {{ $message }}
+                        </div>
+                        @enderror
+                      </div>
                     </div>
-                    @enderror
-                  </div>
-                  <div class="form-group">
-                    <label for="mapel">Mapel</label>
-                    <input autofocus value="{{ old('mapel')}}" type="text" name="mapel" class="form-control @error('mapel') is-invalid @enderror" id="mapel" placeholder="Masukkan Mapel..">
-                    @error('mapel')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                    @enderror
-                  </div>
-                  <div class="form-group">
-                    <label for="no_hp">No hp</label>
-                    <input autofocus value="{{ old('no_hp')}}" type="text" name="no_hp" class="form-control @error('no_hp') is-invalid @enderror" id="no_hp" placeholder="Masukkan No_hp..">
-                    @error('no_hp')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                    @enderror
-                  </div>
-                  <div class="form-group">
-                    <label for="gambar">Gambar</label>
-                    <input type="file" name="gambar" class="form-control @error('gambar') is-invalid @enderror" id="gambar">
-                    @error('gambar')
-                    <div class="invalid-feedback">
-                      {{ $message }}
-                    </div>
-                    @enderror
                   </div>
               <button type="submit" class="btn btn-primary">Submit</button>
             </form>

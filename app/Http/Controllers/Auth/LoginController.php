@@ -25,18 +25,4 @@ class LoginController extends Controller
         }
         return redirect('/auth/login');
     }
-
-    public function userLogin()
-    {
-        $user = User::all();
-        return view('pages.pagesAdmin.user.userLogin', compact('user'));
-    }
-
-
-    // untul tambah user yang login
-    public function user(Request $request)
-    {
-        User::create($request->all());
-        return redirect()->back();
-    }
 }
