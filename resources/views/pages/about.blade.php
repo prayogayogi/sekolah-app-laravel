@@ -5,7 +5,6 @@
 @endsection
 
 @section('content')
-
 <div class="hero-wrap hero-wrap-2" style="background-image: url('{{url('templates/images/bg_2.jpg')}}'); background-attachment:fixed;">
   <div class="overlay"></div>
   <div class="container">

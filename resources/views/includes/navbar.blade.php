@@ -8,12 +8,12 @@
     <div class="collapse navbar-collapse" id="ftco-nav">
       <ul class="navbar-nav ml-auto">
         <li class="nav-item {{request()->is('/') ? 'active' : ''}}"><a href="/" class="nav-link">Home</a></li>
-        <li class="nav-item {{request()->is("dashboard/about") ? 'active' : ''}}"><a href="{{route('about')}}" class="nav-link">Tentang</a></li>
-        <li class="nav-item {{request()->is('dashboard/teacher') ? 'active' : ''}}"><a href="{{route('teacher')}}" class="nav-link">Guru</a></li>
-        <li class="nav-item {{request()->is('dashboard/berita') ? 'active' : ''}}"><a href="{{route('berita')}}" class="nav-link">Berita</a></li>
-        <li class="nav-item {{request()->is('dashboard/kegiatan') ? 'active' : ''}}"><a href="{{route('kegiatan')}}" class="nav-link">Kegiatan</a></li>
-        <li class="nav-item {{request()->is('dashboard/kontak') ? 'active' : ''}}"><a href="{{route('kontak')}}" class="nav-link">Kontak</a></li>
-        <li class="nav-item cta{{request()->is('auth/login') ? 'active' : ''}}"><a href="{{route('login')}}" class="nav-link"><span>Login</span></a></li>
+        <li class="nav-item {{request()->is("dashboard/about") ? 'active' : ''}}"><a href="{{route('view-about')}}" class="nav-link">Tentang</a></li>
+        <li class="nav-item {{request()->is('dashboard/teacher') ? 'active' : ''}}"><a href="{{route('view-teacher')}}" class="nav-link">Guru</a></li>
+        <li class="nav-item {{request()->is('dashboard/berita') ? 'active' : ''}}"><a href="" class="nav-link">Berita</a></li>
+        <li class="nav-item {{request()->is('dashboard/kegiatan') ? 'active' : ''}}"><a href="" class="nav-link">Kegiatan</a></li>
+        <li class="nav-item {{request()->is('dashboard/kontak') ? 'active' : ''}}"><a href="" class="nav-link">Kontak</a></li>
+        <li class="nav-item cta{{request()->is('auth/login') ? 'active' : ''}}"><a href="" class="nav-link"><span>Login</span></a></li>
       </ul>
     </div>
   </div>

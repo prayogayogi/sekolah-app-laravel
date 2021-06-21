@@ -141,7 +141,7 @@
       </div>
     </div>
     <div div class="row">
-
+{{-- 
       @foreach ($headmaster as $headmasters)
       <div class="col-lg-6 mb-sm-4 ftco-animate">
         <div class="staff">
@@ -161,7 +161,7 @@
           </div>
         </div>
       </div>
-      @endforeach
+      @endforeach --}}
 
     </div>
   </div>
@@ -349,5 +349,4 @@
     </div>
   </div>
 </section> -->
-
 @endsection
