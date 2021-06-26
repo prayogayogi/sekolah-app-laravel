@@ -2,7 +2,7 @@
 <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
 
   <!-- Sidebar - Brand -->
-  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{route('dashboard')}}">
+  <a class="sidebar-brand d-flex align-items-center justify-content-center" href="#">
     <div class="sidebar-brand-icon ">
       <img src="{{asset('logo.png')}}" alt="">
     </div>
@@ -14,7 +14,7 @@
 
   <!-- Nav Item - Dashboard -->
   <li class="nav-item {{request()->is('admin/dashboard') ? 'active' : ''}}">
-    <a class="nav-link" href="{{route('dashboard')}}">
+    <a class="nav-link" href="#">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span></a>
   </li>
@@ -29,7 +29,7 @@
 
   <!-- Nav Item - Pages Collapse Menu -->
   <li class="nav-item {{request()->is('admin/kepalaSekolah') ? 'active' : ''}}">
-    <a class="nav-link collapsed" href="{{route('kepalaSekolah')}}" >
+    <a class="nav-link collapsed" href="#" >
       <i class="fas fa-fw fa-cog"></i>
       <span>Kepala Sekolah</span>
     </a>
@@ -45,8 +45,8 @@
     <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Data Guru</h6>
-        <a class="collapse-item" href="{{route('guruPns')}}">Guru Pns</a>
-        <a class="collapse-item" href="{{route('guruHonorer')}}">Guru Honor</a>
+        <a class="collapse-item" href="#">Guru Pns</a>
+        <a class="collapse-item" href="#">Guru Honor</a>
       </div>
     </div>
   </li>
@@ -69,7 +69,7 @@
     <div id="collapsePagesMaster" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Login App</h6>
-        <a class="collapse-item" href="{{route('userLogin')}}">User Login</a>
+        <a class="collapse-item" href="#">User Login</a>
       </div>
     </div>
   </li>

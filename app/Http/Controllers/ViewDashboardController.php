@@ -24,9 +24,21 @@ class ViewDashboardController extends Controller
         return view('pages.teacher');
     }
 
-    // Untuk Teacher
+    // Untuk news
     public function news()
     {
         return view('pages.news');
+    }
+
+    // Untuk contact
+    public function contact()
+    {
+        return view('pages.contact');
+    }
+
+    // Untuk event
+    public function event()
+    {
+        return view('pages.event');
     }
 }

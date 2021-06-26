@@ -29,7 +29,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  @foreach ($user as $users)
+                  {{-- @foreach ($user as $users)
                   <tr>
                     <th scope="row">1</th>
                     <td>{{$users->name}}</td>
@@ -50,7 +50,7 @@
                       <a href="/admin/{{$users->id}}/edit" class="btn btn-info"><i class="far fa-caret-square-right"></i></a>
                     </td>
                   </tr>
-                  @endforeach
+                  @endforeach --}}
                 </tbody>
               </table>
             </div>
@@ -63,7 +63,7 @@
 @endsection
 
 {{-- modal Untuk tambah data --}}
-@if (auth()->user()->role_id == 1)
+{{-- @if (auth()->user()->role_id == 1)
 <div class="modal fade" id="exampleModalUser" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -122,11 +122,11 @@
     </div>
   </div>
 </div>
-@endif
+@endif --}}
 
 
 {{-- Modal Unutk lihat --}}
-@foreach ($user as $users)
+{{-- @foreach ($user as $users)
 <div class="modal fade" id="modalupdate{{$users->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -167,4 +167,4 @@
     </div>
   </div>
 </div>
-@endforeach
+@endforeach --}}
