@@ -59,7 +59,7 @@
 </section>
 
 
-@include('includes.jumlah')
+@include('includes.out.jumlah')
 
 {{-- <section class="ftco-section testimony-section">
   <div class="container">

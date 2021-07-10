@@ -13,5 +13,6 @@ Route::prefix('dashboard')->group(function () {
 
 
 Route::prefix('admin')->namespace('Admin')->group(function () {
-  Route::get('user', 'AdminController@index')->name('user');
+  Route::get('user', 'AdminController@index')->name('admin-user');
+  Route::get('dashboard', 'DashboardController@index')->name('admin-dashboard');
 });

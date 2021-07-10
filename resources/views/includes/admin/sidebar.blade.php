@@ -14,7 +14,7 @@
 
   <!-- Nav Item - Dashboard -->
   <li class="nav-item {{request()->is('admin/dashboard') ? 'active' : ''}}">
-    <a class="nav-link" href="#">
+    <a class="nav-link" href="{{ route('admin-dashboard') }}">
       <i class="fas fa-fw fa-tachometer-alt"></i>
       <span>Dashboard</span></a>
   </li>
@@ -36,7 +36,13 @@
   </li>
 
   <!-- Nav Item - Utilities Collapse Menu -->
-  <li class="nav-item {{request()->is('admin/guruPns') ? 'active' : ''}}">
+  <li class="nav-item {{request()->is('admin/kepalaSekolah') ? 'active' : ''}}">
+    <a class="nav-link collapsed" href="#" >
+      <i class="fas fa-fw fa-wrench"></i>
+      <span>Guru</span>
+    </a>
+  </li>
+  {{-- <li class="nav-item {{request()->is('admin/guruPns') ? 'active' : ''}}">
     <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
       aria-expanded="true" aria-controls="collapseUtilities">
       <i class="fas fa-fw fa-wrench"></i>
@@ -49,7 +55,7 @@
         <a class="collapse-item" href="#">Guru Honor</a>
       </div>
     </div>
-  </li>
+  </li> --}}
 
   <!-- Divider -->
   <hr class="sidebar-divider">
@@ -69,7 +75,7 @@
     <div id="collapsePagesMaster" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
       <div class="bg-white py-2 collapse-inner rounded">
         <h6 class="collapse-header">Login App</h6>
-        <a class="collapse-item" href="#">User Login</a>
+        <a class="collapse-item" href="{{ route('admin-user') }}">User Login</a>
       </div>
     </div>
   </li>

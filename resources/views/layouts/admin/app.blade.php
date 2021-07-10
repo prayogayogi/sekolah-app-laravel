@@ -3,12 +3,12 @@
 
 <head>
   {{-- untuk meta --}}
-  @include('includes.includesAdmin.meta')
+  @include('includes.admin.meta')
 
   <title>@yield('title')</title>
 
   {{-- untuk style --}}
-  @include('includes.includesAdmin.style')
+  @include('includes.admin.style')
 
 </head>
 
@@ -18,7 +18,7 @@
   <div id="wrapper">
 
     {{-- sidebar --}}
-    @include('includes.includesAdmin.sidebar')
+    @include('includes.admin.sidebar')
 
     <!-- Content Wrapper -->
     <div id="content-wrapper" class="d-flex flex-column">
@@ -27,7 +27,7 @@
       <div id="content">
 
         <!-- Topbar -->
-        @include('includes.includesAdmin.nav')
+        @include('includes.admin.nav')
         <!-- End of Topbar -->
 
         <!-- Begin Page Content -->
@@ -38,7 +38,7 @@
       <!-- End of Main Content -->
 
       <!-- Footer -->
-      @include('includes.includesAdmin.footer')
+      @include('includes.admin.footer')
       <!-- End of Footer -->
 
     </div>
@@ -73,7 +73,7 @@
   </div>
 
   {{-- Script --}}
-    @include('includes.includesAdmin.script')
+    @include('includes.admin.script')
   {{-- End Script --}}
 
 </body>
