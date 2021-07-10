@@ -119,7 +119,7 @@
           Activity Log
         </a>
         <div class="dropdown-divider"></div>
-        <form action="#" method="post">
+        <form action="{{ route('logout') }}" method="post">
       @csrf  
           <button type="submit" class="dropdown-item" >
             <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>

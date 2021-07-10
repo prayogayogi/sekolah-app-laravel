@@ -13,9 +13,8 @@
         <li class="nav-item {{request()->is('dashboard/news') ? 'active' : ''}}"><a href="{{route('view-news')}}" class="nav-link">Berita</a></li>
         <li class="nav-item {{request()->is('dashboard/event') ? 'active' : ''}}"><a href="{{route('view-event')}}" class="nav-link">Kegiatan</a></li>
         <li class="nav-item {{request()->is('dashboard/contact') ? 'active' : ''}}"><a href="{{route('view-contact')}}" class="nav-link">Kontak</a></li>
-        <li class="nav-item cta{{request()->is('auth/login') ? 'active' : ''}}"><a href="#" class="nav-link"><span>Login</span></a></li>
+        <li class="nav-item cta{{request()->is('auth/login') ? 'active' : ''}}"><a href="{{ route('auth.index') }}" class="nav-link"><span>Login</span></a></li>
       </ul>
     </div>
   </div>
 </nav>
-<!-- END nav -->

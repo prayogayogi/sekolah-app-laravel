@@ -20,15 +20,25 @@
                 <div class="text-center">
                   <h1 class="h4 text-gray-900 mb-4">Please Login {{ config('app.name')}}</h1>
                 </div>
-                <form class="user" method="POST" action="{{ route('dashboardLogin') }}" >
+                <form class="user" method="POST" action="{{ route('auth.login') }}">
                   @csrf
                   <div class="form-group">
                     <label for="exampleInputEmail">Email</label>
-                    <input type="text" value="{{ old('email') }}" name="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email.." autofocus>
+                    <input type="text" value="{{ old('email') }}" name="email" class="form-control form-control-user @error('email') is-invalid @enderror" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email.." autofocus autocomplete="off">
+                    @error('email')
+                    <small class="text-danger ml-3 mt-1">
+                     {{ $message }}
+                    </small>
+                    @enderror
                   </div>
                   <div class="form-group">
                     <label for="exampleInputPassword">Password</label>
                     <input type="password" name="password" class="form-control form-control-user @error('password') is-invalid @enderror" id="exampleInputPassword" placeholder="Password..">
+                    @error('password')
+                    <small class="text-danger ml-3 mt-1">
+                     {{ $message }}
+                    </small>
+                    @enderror
                   </div>
                   <button type="submit" class="btn btn-primary btn-user btn-block">
                     Login

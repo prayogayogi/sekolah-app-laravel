@@ -11,8 +11,14 @@ Route::prefix('dashboard')->group(function () {
   Route::get('contact', 'ViewDashboardController@contact')->name('view-contact');
 });
 
-
 Route::prefix('admin')->namespace('Admin')->group(function () {
   Route::get('user', 'AdminController@index')->name('admin-user');
   Route::get('dashboard', 'DashboardController@index')->name('admin-dashboard');
 });
+
+Route::prefix('auth')->namespace('Auth')->group(function () {
+  Route::get('index', 'loginController@index')->name('auth.index');
+  Route::post('login', 'loginController@login')->name('auth.login');
+});
+
+Route::post('logout', 'Auth\LogoutController')->name('logout');
